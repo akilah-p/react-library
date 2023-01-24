@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import { getBookById } from '../services/books';
-import { useParams } from 'react-router-dom';
-import Book from '../components/book/Book';
 
-export function useBookDetail() {
-  const [book, setBook] = useState(null);
+export function useBookDetail({ id }) {
+  const [book, setBook] = useState();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+
   useEffect(() => {
-    getBookById(id).then(({ data }) => setBook(data));
+    const fetchData = async () => {
+      try {
+        const data = await getBookById(id);
+        setBook(data);
+        setLoading(false);
+      } catch (e) {
+        setError(e.message);
+      }
+    };
+    fetchData();
   }, [id]);
 
-  try {
-    setLoading(false);
-  } catch (e) {
-    setError(e.message);
-  }
-  
-  if (loading) return <h3>Loading...</h3>;
-  
-  return <Book book={book} error={error} showDetail />;
+  return { book, error, loading };
 }
