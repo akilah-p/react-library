@@ -5,6 +5,7 @@ export function useBookDetail({ id }) {
   const [book, setBook] = useState();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,6 +15,7 @@ export function useBookDetail({ id }) {
         setLoading(false);
       } catch (e) {
         setError(e.message);
+        
       }
     };
     fetchData();
