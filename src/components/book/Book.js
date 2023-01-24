@@ -4,8 +4,8 @@ import './Book.css';
 
 
 function Book({
-  book : { title, total_pages: totalPages, rating, isbn, published_date: publishedDate, authors },
-  showDetail = false
+  book: { title, total_pages: totalPages, rating, isbn, published_date: publishedDate, authors },
+  showDetail = false,
 }) {
   return (
     <article className="book">

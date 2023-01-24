@@ -18,7 +18,7 @@ function BookList() {
       {books.map((book) => (
         <Link className="book-link" key={book.book_id} to={`/books/${book.book_id}`}>
 
-          <li key={book.book_id}>
+          <li>
             <Book book={book} />
           </li>
         </Link>
