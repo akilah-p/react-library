@@ -1,5 +1,6 @@
 import Book from '../../components/book/Book';
 import { useBooks } from '../../hooks/useBooks';
+import { Link } from 'react-router-dom';
 
 function BookList() {
   const { error, loading, books } = useBooks();
@@ -11,13 +12,17 @@ function BookList() {
     );
   if (loading) return <h1>Loading books...</h1>;
   return (
-    <ul className="book-list" aria-label="book list">
-      {books.map((book) => (
-        <li key={book.book_id}>
-          <Book book={book} />
-        </li>
-      ))}
-    </ul>
+    <>
+      <h1>Book List</h1>
+      <Link to="/">Go Home</Link>
+      <ul className="book-list" aria-label="book list">
+        {books.map((book) => (
+          <li key={book.book_id}>
+            <Book book={book} />
+          </li>
+        ))}
+      </ul>
+    </>
   );
 }
 
