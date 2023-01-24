@@ -7,7 +7,7 @@
   color: rgb(37, 37, 37);
 }
 
-.book-list li {
+.book-link {
   display: flex;
   align-items: center;
   padding: 10px 20px;

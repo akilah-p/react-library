@@ -12,12 +12,9 @@ function BookList() {
     );
   if (loading) return <h1>Loading books...</h1>;
   return (
-    
-     
     <ul className="book-list" aria-label="book list">
       {books.map((book) => (
         <Link className="book-link" key={book.book_id} to={`/books/${book.book_id}`}>
-
           <li>
             <Book book={book} />
           </li>
